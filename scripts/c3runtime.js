@@ -3106,6 +3106,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.Spritefont2.Acts.SetPosToObject,
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
+		C3.Plugins.Spritefont2.Acts.Destroy,
 		C3.Behaviors.Sin.Cnds.IsEnabled,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Behaviors.Sin.Acts.SetEnabled,
@@ -3164,8 +3165,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.System.Acts.Signal,
 		C3.Plugins.System.Exps.viewporttop,
 		C3.Plugins.Sprite.Acts.StartAnim,
-		C3.Plugins.Browser.Acts.Close,
-		C3.Plugins.Spritefont2.Exps.Height
+		C3.Plugins.Browser.Acts.Close
 		];
 	};
 	self.C3_JsPropNameTable = [
@@ -3180,6 +3180,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{GuiFrame: 0},
 		{GuiTime: 0},
 		{GuiTurns: 0},
+		{choisiunefamillealimentaire: 0},
 		{Background: 0},
 		{Background_Mask: 0},
 		{Audio: 0},
@@ -3212,6 +3213,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{TextFont: 0},
 		{Level: 0},
 		{ButtonLevelFont: 0},
+		{TextDisplay: 0},
 		{ButtonExit: 0},
 		{ButtonFullscreen: 0},
 		{ButtonPlay: 0},
@@ -3258,8 +3260,14 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{Seconds: 0},
 		{Minutes: 0},
 		{Card_Theme: 0},
-		{CARD_ZOMBIE: 0},
-		{CARD_FLOWER: 0},
+		{CARD_BOISSONS: 0},
+		{CARD_FECULENTS: 0},
+		{CARD_FROMAGES: 0},
+		{CARD_FRUITSETLEGUMES: 0},
+		{CARD_LEGUMINEUSES: 0},
+		{CARD_MATIERESGRASSES: 0},
+		{CARD_SUCRESSALESGRAS: 0},
+		{CARD_VIANDESPOISSONSOEUF: 0},
 		{CurrentTableauCard: 0},
 		{CurrentColumn: 0},
 		{CurrentRow: 0},
@@ -3373,16 +3381,22 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		() => "Ready",
 		() => "Inactive",
 		() => 1,
-		() => 20,
+		() => 16,
 		() => 4,
-		() => "Zombie",
+		() => "BOISSONS",
 		() => 2,
-		() => "Flower",
+		() => "FECULENTS",
 		() => 3,
+		() => "FRUITS ET LEGUMES",
+		() => "LEGUMINEUSES",
 		() => 5,
+		() => "MATIERES GRASSES",
 		() => 6,
+		() => "FROMAGES",
 		() => 7,
+		() => "SUCRES SALES GRAS",
 		() => 8,
+		() => "VIANDES POISSONS OEUF",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => v0.GetValue();
@@ -3395,7 +3409,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			const v1 = p._GetNode(1).GetVar();
-			return () => and((and("LEVEL:", v0.GetValue()) + "/"), v1.GetValue());
+			return () => and((and("Niveau:", v0.GetValue()) + "/"), v1.GetValue());
 		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -3501,8 +3515,8 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => ((f0() / 2) + 210);
 		},
-		() => "Sound",
 		() => "Play",
+		() => "Sound",
 		() => "Active",
 		() => "Time_Settings",
 		() => 59,
@@ -3552,10 +3566,10 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		() => 13,
 		() => 14,
 		() => 15,
-		() => 16,
 		() => 17,
 		() => 18,
 		() => 19,
+		() => 20,
 		() => 21,
 		() => "Touch",
 		() => "Open",
@@ -3744,12 +3758,6 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		() => 240,
 		() => "ButtonExit_Settings",
 		() => "Levels_Settings",
-		() => "Gui",
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const n1 = p._GetNode(1);
-			return () => (f0(0) + n1.ExpObject());
-		},
 		() => "ButtonLevel_Settings",
 		() => 288,
 		() => 296
