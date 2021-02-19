@@ -3107,6 +3107,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		C3.Plugins.Touch.Cnds.OnTouchObject,
 		C3.Plugins.Keyboard.Cnds.OnAnyKey,
 		C3.Plugins.Spritefont2.Acts.Destroy,
+		C3.Plugins.Spritefont2.Cnds.CompareInstanceVar,
 		C3.Behaviors.Sin.Cnds.IsEnabled,
 		C3.Plugins.Audio.Acts.Play,
 		C3.Behaviors.Sin.Acts.SetEnabled,
@@ -3213,6 +3214,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 		{TextFont: 0},
 		{Level: 0},
 		{ButtonLevelFont: 0},
+		{for: 0},
 		{TextDisplay: 0},
 		{ButtonExit: 0},
 		{ButtonFullscreen: 0},
@@ -3423,7 +3425,7 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const v3 = p._GetNode(3).GetVar();
 			const v4 = p._GetNode(4).GetVar();
 			const v5 = p._GetNode(5).GetVar();
-			return () => f0((((f1() - (f2() / 4)) - ((v3.GetValue() + 1) * v4.GetValue())) / v5.GetValue()));
+			return () => f0((((f1() - (f2() / 10)) - ((v3.GetValue() + 1) * v4.GetValue())) / v5.GetValue()));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -3516,6 +3518,8 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			return () => ((f0() / 2) + 210);
 		},
 		() => "Play",
+		() => "LevelCompleted",
+		() => "howto",
 		() => "Sound",
 		() => "Active",
 		() => "Time_Settings",
@@ -3614,7 +3618,6 @@ value:this.WaveFunc(this._i)*this._mag}]}]}}};
 			const v0 = p._GetNode(0).GetVar();
 			return () => (v0.GetValue() / 2);
 		},
-		() => "LevelCompleted",
 		() => "Foreground",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
